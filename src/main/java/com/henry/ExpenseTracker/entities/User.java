@@ -1,5 +1,5 @@
 package com.henry.ExpenseTracker.entities;
-import com.henry.ExpenseTracker.exceptions.ExpenseUserNotFoundException;
+import com.henry.ExpenseTracker.exceptions.ExpenseNotFoundException;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -55,19 +55,19 @@ public class User {
         expenses.add(expense);
     }
 
-    public void updateExpense(int index, Expense updateExpense) throws ExpenseUserNotFoundException {
+    public void updateExpense(int index, Expense updateExpense) throws ExpenseNotFoundException {
         try {
             expenses.set(index, updateExpense);
         } catch (Exception e){
-            throw new ExpenseUserNotFoundException("No se pudo actualizar el gasto. Indice " + index + " no fue encontrado.");
+            throw new ExpenseNotFoundException("No se pudo actualizar el gasto. Indice " + index + " no fue encontrado.");
         }
     }
 
-    public void removeExpense(int index) throws ExpenseUserNotFoundException {
+    public void removeExpense(int index) throws ExpenseNotFoundException {
         try {
             expenses.remove(index);
         } catch (Exception e){
-            throw new ExpenseUserNotFoundException("No se pudo eliminar el gasto. Indice " + index + " no fue encontrado.");
+            throw new ExpenseNotFoundException("No se pudo eliminar el gasto. Indice " + index + " no fue encontrado.");
         }
     }
 

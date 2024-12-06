@@ -66,13 +66,13 @@ public class ExpenseController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteExpense(@PathVariable int id) {
-        log.info("Entrando al endpoint para eliminar el Gasto con id: {}", id);
+        log.info("Request received to delete expense with id: {}", id);
         try {
             expenseService.deleteExpense(id);
-            log.info("Gasto con id {} eliminado exitosamente", id);
+            log.info("Expense with id {} deleted successfully", id);
             return ResponseEntity.ok("Gasto con id " + id + " eliminado exitosamente.");
         } catch (ExpenseNotFoundException e) {
-            log.error("Fallo al eliminar el Gasto con id {}: {}", id, e.getMessage());
+            log.error("Failed to delete expense with id {}: {}", id, e.getMessage());
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         }
     }

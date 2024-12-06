@@ -5,18 +5,18 @@ import com.henry.ExpenseTracker.repository.Dao.Dto.request.ExpenseRequestDto;
 import com.henry.ExpenseTracker.repository.Dao.Dto.response.ExpenseResponseDto;
 import com.henry.ExpenseTracker.repository.Dao.ExpenseRepositoryDao;
 import com.henry.ExpenseTracker.services.ExpenseService;
-import lombok.AllArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Slf4j
 @Service
-@AllArgsConstructor
 public class ExpenseServiceImpl implements ExpenseService {
 
     private final ExpenseRepositoryDao expenseRepository;
+
+    public ExpenseServiceImpl(ExpenseRepositoryDao expenseRepository) {
+        this.expenseRepository = expenseRepository;
+    }
 
     @Override
     public List<Expense> getAllExpenses() {
