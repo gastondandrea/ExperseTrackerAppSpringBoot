@@ -1,7 +1,7 @@
 package com.henry.ExpenseTracker.entities;
 
 
-import com.henry.ExpenseTracker.exceptions.ExpenseNotFoundException;
+import com.henry.ExpenseTracker.exceptions.ExpenseUserNotFoundException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
@@ -39,7 +39,7 @@ public class UserTest {
     }
 
     @Test
-    void updateExpense() throws ExpenseNotFoundException {
+    void updateExpense() throws ExpenseUserNotFoundException {
         // GIVEN
         user.addExpense(expense1);
         Expense updatedExpense = new Expense(60.0, "Compra mensual", new Category("Supermercado", ""), new Date());
@@ -53,7 +53,7 @@ public class UserTest {
     }
 
     @Test
-    void removeExpense() throws ExpenseNotFoundException{
+    void removeExpense() throws ExpenseUserNotFoundException {
         // GIVEN
         user.addExpense(expense1);
         user.addExpense(expense2);

@@ -1,9 +1,8 @@
-package com.henry.ExpenseTracker.services;
+package com.henry.ExpenseTracker.services.impl;
 
 
 import com.henry.ExpenseTracker.entities.Expense;
 import com.henry.ExpenseTracker.entities.User;
-import com.henry.ExpenseTracker.services.impl.UserServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -17,7 +16,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
-class ExpenseServiceImplTest {
+class UserServiceImplTest {
 
     @InjectMocks
     private UserServiceImpl userService;

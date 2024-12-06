@@ -1,11 +1,10 @@
-package com.henry.ExpenseTracker.repository;
+package com.henry.ExpenseTracker.repository.Dao;
 
 import com.henry.ExpenseTracker.entities.Expense;
-import com.henry.ExpenseTracker.exceptions.ExpenseNotFoundException;
 
 import java.util.List;
 
-public interface ExpenseRepository {
+public interface ExpenseRepositoryDao {
 
     List<Expense> findAll();
 

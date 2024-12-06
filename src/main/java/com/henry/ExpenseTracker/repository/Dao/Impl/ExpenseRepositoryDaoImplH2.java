@@ -1,8 +1,10 @@
-package com.henry.ExpenseTracker.repository.Impl;
+package com.henry.ExpenseTracker.repository.Dao.Impl;
 
 import com.henry.ExpenseTracker.entities.Category;
 import com.henry.ExpenseTracker.entities.Expense;
-import com.henry.ExpenseTracker.repository.ExpenseRepository;
+import com.henry.ExpenseTracker.exceptions.ExpenseNotFoundException;
+import com.henry.ExpenseTracker.repository.Dao.ExpenseRepositoryDao;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
@@ -15,7 +17,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 @Repository
-public class ExpenseRepositoryImpl implements ExpenseRepository {
+public class ExpenseRepositoryDaoImplH2 implements ExpenseRepositoryDao {
 
     private final static String SELECT_ALL_EXPENSES = "SELECT * FROM expenses";
     private final static String FIND_EXPENSE_BY_ID = "SELECT * FROM expenses WHERE id = ?";
@@ -23,9 +25,10 @@ public class ExpenseRepositoryImpl implements ExpenseRepository {
     private final static String UPDATE_EXPENSE = "UPDATE expenses SET amount = ?, category = ?, description = ?, date = ? WHERE id = ?";
     private final static String DELETE_EXPENSE = "DELETE FROM expenses WHERE id = ?";
 
+
     private final JdbcTemplate jdbcTemplate;
 
-    public ExpenseRepositoryImpl(JdbcTemplate jdbcTemplate) {
+    public ExpenseRepositoryDaoImplH2(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
 
@@ -51,7 +54,11 @@ public class ExpenseRepositoryImpl implements ExpenseRepository {
 
     @Override
     public Expense findById(int id) {
-        return jdbcTemplate.queryForObject(FIND_EXPENSE_BY_ID, new Object[]{id}, rowMapper);
+        try {
+            return jdbcTemplate.queryForObject(FIND_EXPENSE_BY_ID, new Object[]{id}, rowMapper);
+        } catch (EmptyResultDataAccessException e) {
+            throw new ExpenseNotFoundException("El gasto con id " + id + " no fue encontrado.");
+        }
     }
 
     @Override
@@ -78,6 +85,10 @@ public class ExpenseRepositoryImpl implements ExpenseRepository {
 
     @Override
     public int delete(int id) {
-        return jdbcTemplate.update(DELETE_EXPENSE, id);
+        int rowsAffected = jdbcTemplate.update(DELETE_EXPENSE, id);
+        if (rowsAffected == 0) {
+            throw new ExpenseNotFoundException("El gasto con id " + id + " no fue encontrado para eliminar.");
+        }
+        return rowsAffected;
     }
 }
