@@ -175,19 +175,19 @@ _Se recomienda desarrollar un componente más de negocio, otra funcionalidad par
 
 **Generación del Proyecto Base**
 
-1. [ ] Utiliza Spring Initializr para generar un proyecto base con Spring Boot, incorporando la dependencia de Spring Web, en principio.
+1. [x] Utiliza Spring Initializr para generar un proyecto base con Spring Boot, incorporando la dependencia de Spring Web, en principio.
 
 **Migración de Clases Modelo y Lógica de Negocio**
 
-2. [ ] Comienza a migrar las clases modelo y aquellas con lógica de negocio al nuevo proyecto de Spring. 
+2. [x] Comienza a migrar las clases modelo y aquellas con lógica de negocio al nuevo proyecto de Spring. 
 
 **Implementación de Controladores REST**
 
-3. [ ] Implementa controladores REST para gestionar las solicitudes HTTP relacionadas con los gastos. 
+3. [x] Implementa controladores REST para gestionar las solicitudes HTTP relacionadas con los gastos. 
 
 **Creación del ExpenseController**
 
-4. [ ] Crea una clase ExpenseController con endpoints como:
+4. [x] Crea una clase ExpenseController con endpoints como:
 
         `@GetMapping("/expenses")`
 
@@ -199,27 +199,27 @@ _Se recomienda desarrollar un componente más de negocio, otra funcionalidad par
 
 **Aplicación del Patrón MVC**
 
-5. [ ] Utiliza el patrón MVC para separar las responsabilidades de la aplicación
+5. [x] Utiliza el patrón MVC para separar las responsabilidades de la aplicación
 
 **Gestión de Lógica de Negocio y Persistencia**
 
-6. [ ] Crea clases ExpenseService y ExpenseRepository para manejar la lógica de negocio y la persistencia de datos.
+6. [x] Crea clases ExpenseService y ExpenseRepository para manejar la lógica de negocio y la persistencia de datos.
 
 **Conexión a la Base de Datos**
 
-7. [ ] Para conectarte a la base de datos, incorpora la API JDBC de Spring como dependencia.
+7. [x] Para conectarte a la base de datos, incorpora la API JDBC de Spring como dependencia.
 
 **Anotación de Clases con @Service y @Repository**
 
-8. [ ] Utiliza @Service y @Repository para anotar estas clases.
+8. [x] Utiliza @Service y @Repository para anotar estas clases.
 
 **Documentación y Pruebas de Endpoints**
 
-9. [ ] Documenta los endpoints creados y pruébalos utilizando herramientas como Insomnia (o algún otro cliente HTTP).
+9. [x] Documenta los endpoints creados y pruébalos utilizando herramientas como Insomnia (o algún otro cliente HTTP).
 
 **Organización y Pruebas con Insomnia**
 
-10. [ ] Crea un archivo de colección en Insomnia para organizar y probar los endpoints.
+10. [x] Crea un archivo de colección en Insomnia para organizar y probar los endpoints.
 
 **Tips**
 
@@ -235,11 +235,11 @@ _Migra, refactoriza y genera nuevos tests unitarios para las clases service y re
 
 **Logging del Flujo de la Aplicación**
 
-1. [ ] Anota clases con @Slf4j y realiza logging del flujo de la aplicación en lugares clave, usando diferentes niveles de logging.
+1. [x] Anota clases con @Slf4j y realiza logging del flujo de la aplicación en lugares clave, usando diferentes niveles de logging.
 
 **Implementación de Spring Data JPA**
 
-2. [ ] Incorpora la dependencia e implementa Spring Data JPA para facilitar la conexión y manipulación de datos en la base de datos.
+2. [x] Incorpora la dependencia e implementa Spring Data JPA para facilitar la conexión y manipulación de datos en la base de datos.
 
 **Mapeo de Entidades con Anotaciones**
 
